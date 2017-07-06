@@ -19,7 +19,7 @@ class SearchBar extends Component {
             //this.state.inp = event.target.value; 
             //above is bad, because react will unable to know that state is changed to new value
             //always modify the components value using this.setState();
-            <div>
+            <div className="search-bar">
                 <input 
                 value={this.state.term} 
                 onChange={event => this.setState({ term: event.target.value })} />
