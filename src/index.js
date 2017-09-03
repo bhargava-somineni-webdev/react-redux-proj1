@@ -21,9 +21,9 @@ class App extends Component {
     videoSearch(term) {
         YTSearch({ key: Youtube_API_Key, term: term }, (videos) => {
             this.setState({
-                videos,
+                videos, //same as this.setState({ videos: videos });
                 selectedVideo: videos[0]
-            }); //same as this.setState({ videos: videos });
+            }); 
         });
     }
     render() {
@@ -36,12 +36,18 @@ class App extends Component {
                 <VideoList
                     onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
                     videos={this.state.videos} />
-            </div>
+            </div> // above videos = {this.state.videos} helps pass the videos data from,
+             //App state to the child component VideoList. We are passing 'props'(here props are videos)
+             //from parent App component to child VideoList component.
+             //Similarly onVideoSelect is also another property we are passing from App to VideoList.
+             //But now it is a function instead of an array like videos
         );
     }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container')); //the second parameter,
+//is to tell ReactDOM where to render the component, 
+//in our case we are telling it to render to element with '.container' cssclass
 
 //App as functional component below
 // const App = () => {

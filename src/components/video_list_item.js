@@ -1,6 +1,9 @@
 import React from 'react';
 
 const VideoListItem = ({ video, onVideoSelect }) => {
+   //onVideoSelect is a function we passed from App to VideoList and then finally to VideoListItem
+   //our intention is to call this onVideoSelect function, whenever a video item is clicked
+   //and then pass that clicked video back to App and set state of selected video in App to the clicked video
     const imageUrl = video.snippet.thumbnails.default.url;
     const videoTitle = video.snippet.title;
     return (

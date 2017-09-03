@@ -30,6 +30,9 @@ class SearchBar extends Component {
     onInputChange(term) {
         this.setState({ term });
         this.props.onSearchTermChange(term);
+        //onSearchTermChange is a callback function passed as prop from App to the SearchBar component
+        //Whenever the search bar is changed, we call the App's onSearchTermChange function and pass
+        //the new search bar value to that function 
     }
 
     //alternative rendering 
@@ -47,6 +50,8 @@ class SearchBar extends Component {
     //     return <input onChange={(event) => { return console.log(event.target.value) }} />;
     // }    
 }
-
+//onChange = {function(event) {
+//this.onInputChange(event.target.value);
+//}}
 
 export default SearchBar;
